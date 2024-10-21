@@ -1,0 +1,147 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+:root {
+  --color: whitesmoke;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: pink;
+}
+.container {
+  position: relative;
+  top: 135px;
+  height: 200px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.container .cloud {
+  position: relative;
+  width: 300px;
+  z-index: 100;
+  filter: drop-shadow(0 0 35px var(--color));
+}
+.container .cloud h1 {
+  position: absolute;
+  color: var(--color);
+  left: 50%;
+  top: -70px;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  color: pink;
+  font-size: 2em;
+  z-index: 1000;
+  font-weight: 900;
+  padding: 0 90px;
+  border-radius: 100px;
+  text-transform: uppercase;
+  background: var(--color);
+  cursor: pointer;
+}
+.container .cloud::before {
+  content: "";
+  position: absolute;
+  top: -95px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 100px;
+  width: 120%;
+  height: 100px;
+  background: var(--color);
+}
+.container .cloud::after {
+  content: "";
+  position: absolute;
+  top: -150px;
+  left: 25px;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: var(--color);
+  box-shadow: 120px -30px 0 40px var(--color);
+}
+.container .cloud .drop {
+  position: absolute;
+  top: 6px;
+  height: 20px;
+  line-height: 20px;
+  color: var(--color);
+  transform-origin: bottom;
+  animation: animate 2s linear infinite;
+}
+@keyframes animate {
+  0% {
+    transform: translateY(0) scaleY(0);
+    transform-origin: top;
+  }
+  10% {
+    transform: translateY(0) scaleY(0.25);
+    transform-origin: top;
+  }
+  20% {
+    transform: translateY(0) scale(1);
+  }
+  70% {
+    transform: translateY(300px) scaleY(1.2);
+    transform-origin: bottom;
+  }
+  80% {
+    transform: translateY(300px) scaleY(1.5);
+    transform-origin: bottom;
+  }
+  100% {
+    transform: translateY(300px) scaleY(0);
+    transform-origin: bottom;
+    text-shadow: -30px 0 0 var(--color), 30px 0 0 var(--color);
+  }
+}
+.main-container {
+  display: flex;
+  flex-direction: column;
+}
+
+#heart {
+  position: relative;
+  width: 300px;
+  height: 270px;
+  margin-top: 80px;
+  left: -50px;
+}
+
+h2 {
+  position: absolute;
+  left: 47%;
+  transform: translateY(80px);
+  color: pink;
+  z-index: 1000;
+}
+
+#heart::before,
+#heart::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 200px;
+  height: 240px;
+  border-radius: 100px 100px 0 0;
+  background: red;
+}
+
+#heart::before {
+  left: 200px;
+  transform: rotate(-60deg);
+  transform-origin: 0 100%;
+}
+
+#heart::after {
+  left: 0;
+  transform: rotate(60deg);
+  transform-origin: 100% 100%;
+}
